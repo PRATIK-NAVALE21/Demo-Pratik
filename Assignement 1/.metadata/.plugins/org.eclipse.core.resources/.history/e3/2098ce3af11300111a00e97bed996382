@@ -1,0 +1,39 @@
+//============================================================================
+// Name        : Quesiton3cpp.cpp
+// Author      : Pratik
+// Version     :
+// Copyright   : Your copyright notice
+// Description : Hello World in C++, Ansi-style
+//============================================================================
+
+#include <iostream>
+using namespace std;
+class ToolBooth{
+	int totalVehicles;
+	double totalRevenue;
+
+	void reset(int totVehicles,double totRevenue){
+		totalVehicles=totVehicles;
+		totalRevenue=totRevenue;
+	}
+
+	void vehiclePayingToll(int vehicleType,double tollAmount){
+
+	}
+
+	int getTotalVehicles()const{
+		return totalVehicles;
+	}
+
+	double getTotalRevenue(){
+		return totalRevenue;
+	}
+};
+int main() {
+	int choice;
+	do{
+		cout<<"MENU DRIVEN PROGRAM!";
+
+	}while(choice!=7);
+	return 0;
+}

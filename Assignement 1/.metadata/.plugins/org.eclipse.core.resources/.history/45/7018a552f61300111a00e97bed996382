@@ -1,0 +1,91 @@
+//============================================================================
+// Name        : Quesiton3cpp.cpp
+// Author      : Pratik
+// Version     :
+// Copyright   : Your copyright notice
+// Description : Hello World in C++, Ansi-style
+//============================================================================
+
+#include <iostream>
+using namespace std;
+class ToolBooth{
+	int totalVehicles;
+	double totalRevenue;
+public:
+	void reset(){
+		totalVehicles=0;
+		totalRevenue=0;
+	}
+
+	void vehiclePayingToll(int vehicleType,double tollAmount){
+		if(vehicleType==1){
+			totalVehicles++;
+			totalRevenue+=180;
+		}else if(vehicleType==2){
+			totalVehicles++;
+			totalRevenue+=300;
+		}else if(vehicleType==2){
+			totalVehicles++;
+			totalRevenue+=350;
+		}
+	}
+
+	int getTotalVehicles()const{
+		return totalVehicles;
+	}
+
+	double getTotalRevenue()const{
+		return totalRevenue;
+	}
+};
+int main() {
+	int choice;
+	ToolBooth TB;
+	do{
+		cout<<"MENU DRIVEN PROGRAM!"<<endl;
+		cout<<"1. Add a standard car and collect toll "<<endl;
+		cout<<"2. Add a truck and collect toll "<<endl;
+		cout<<"3. Add a bus and collect toll "<<endl;
+		cout<<"4. Display total cars passed"<<endl;
+		cout<<"5. Display total revenue collected"<<endl;
+		cout<<"6. Reset booth statistics"<<endl;
+		cout<<"7. Exit"<<endl;
+		cout<<"Enter the choice:"<<endl;
+		cin>>choice;
+
+		switch(choice){
+		case 1:{
+			TB.vehiclePayingToll(1,180);
+			break;
+		}
+		case 2:{
+			TB.vehiclePayingToll(2,300);
+			break;
+		}
+		case 3:{
+			TB.vehiclePayingToll(3,350);
+			break;
+		}
+		case 4:{
+			cout<<"Total Vehicles:"<<TB.getTotalVehicles();
+			break;
+		}
+		case 5:{
+			TB.getTotalRevenue();
+			break;
+		}
+		case 6:{
+			TB.reset();
+			break;
+		}
+		case 7:{
+			cout<<"Exiting the Program!ThankYou!See you Again!";
+			break;
+		}
+		default:
+			cout<<"Invalid Choice!";
+			break;
+		}
+	}while(choice!=7);
+	return 0;
+}

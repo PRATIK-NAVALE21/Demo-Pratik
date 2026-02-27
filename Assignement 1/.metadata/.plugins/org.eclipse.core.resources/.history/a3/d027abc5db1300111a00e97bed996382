@@ -1,0 +1,100 @@
+//============================================================================
+// Name        : Question2.cpp
+// Author      : Pratik
+// Version     :
+// Copyright   : Your copyright notice
+// Description : Hello World in C++, Ansi-style
+//============================================================================
+
+#include <iostream>
+using namespace std;
+class BankAccount{
+int AccountNumber;
+string accountHolderName;
+double balance ;
+public:
+
+void setAccountNumber(int BankAccountNumber){
+	if(AccountNumber>0){
+		AccountNumber=BankAccountNumber;
+	}
+}
+int getAccountNumber()const{
+	return  AccountNumber;
+}
+
+void setaccountHolderName(string BankaccountHolderName){
+	accountHolderName=BankaccountHolderName;
+}
+
+int getaccountHolderName()const{
+	return accountHolderName;
+}
+
+void setBalance(double BankBalance){
+	balance=BankBalance;
+}
+
+double getBalance()const{
+	return balance;
+}
+
+void  Deposit(int amount){
+	balance+=amount;
+	setBalance(balance);
+}
+
+void Withdraw(float WithDrawMoney){
+	if(balance>0 && balance>WithDrawMoney){
+		balance=balance-WithDrawMoney;
+	}else{cout<<"Insufficient balance!";}
+	setBalance(balance);
+}
+
+void displayAccountDetails(){
+	cout<<"Account Number:"<<getAccountNumber();
+	cout<<"Account holder Name:"<<getaccountHolderName();
+	cout<<"Balance:"<<getBalance();
+}
+
+};
+int main() {
+	int choice;
+	BankAccount B;
+	do{
+		cout<<"Menu Driven Program!"<<endl;
+		cout<<"1. Deposit money into an existing account"<<endl;
+		cout<<"2. Withdraw money from an existing account."<<endl;
+		cout<<"3. Display the account details."<<endl;
+		cout<<"4. Exit the program."<<endl;
+		switch(choice){
+		case 1:
+		{		int amount;
+				cout<<"Enter the amount to be Deposited:"<<endl;
+				cin>>amount;
+				B.Deposit(amount);
+				cout<<"Updated Balance:";
+				cout<<B.getBalance()<<endl;
+				break;
+				}
+		case 2:
+		{		int amount;
+				cout<<"Enter the amount to be Withdraw:"<<endl;
+				cin>>amount;
+				B.Withdraw(amount);
+				cout<<"Updated Balance:";
+				cout<<B.getBalance()<<endl;
+				break;
+				}
+		case 3:
+		{
+					break;
+				}
+		case 4:{
+			cout<<"Exiting the program!Thank You! See You Again!"
+			break;
+		}
+		}
+	}while(choice!=4);
+	return 0;
+}

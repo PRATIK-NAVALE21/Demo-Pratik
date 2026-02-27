@@ -1,0 +1,124 @@
+//============================================================================
+// Name        : Question4.cpp
+// Author      : Pratik
+// Version     :
+// Copyright   : Your copyright notice
+// Description : Hello World in C++, Ansi-style
+//============================================================================
+
+#include <iostream>
+using namespace std;
+class Employee{
+	int empID;
+	string empName;
+	double empSalary;
+public:
+	void setEmpID(int employeeID){
+		empID=employeeID;
+	}
+	void setempName(string employeeName){
+		empName=employeeName;
+	}
+	void setempSalary(double employeeSalary){
+		empSalary=employeeSalary;
+	}
+
+	int getEmpSalary(){
+		return empSalary;
+	}
+	string getEmpName(){
+		return empName;
+	}
+	double setEmpID(){
+		return empID;
+	}
+	double GrossSalary(){
+		double gross,bonus;
+		if(empSalary<=5000){
+			bonus=empSalary*0.10;
+		}else if(empSalary>5000 && empSalary<=10000 ){
+			bonus=empSalary*0.15;
+		}else if(empSalary>10000){
+			bonus=empSalary*0.20;
+		}
+		gross=empSalary+bonus;
+		return gross;
+	}
+
+	void  displayEmployeeDetails(){
+		if(empID>0 ){
+			cout<<"ID:"<<empID<<endl;
+			cout<<"Name:"<<empName<<endl;
+			cout<<"Salary:"<<empSalary<<endl;
+			double gross=GrossSalary();
+			cout<<"Gross Salary: "<<gross<<endl;
+		}else{
+			cout<<"Nothing to display! Add first"<<endl;
+		}
+
+
+	}
+	void UpdateEmployee(string empName,double empSalary){
+		setempName(empName);
+		setempSalary(empSalary);
+	}
+};
+int main() {
+	int choice;
+	Employee E;
+	do{
+		cout<<"1.Add a new employee"<<endl;
+		cout<<"2.Calculate the gross salary for an employee"<<endl;
+		cout<<"3.Display Employee"<<endl;
+		cout<<"4.Update Employee"<<endl;
+		cout<<"5.Exit"<<endl;
+		cout<<"ENTER THE CHOICE:";
+		cin>>choice;
+	switch(choice){
+	case 1:
+			{
+				int empID;
+				string empName;
+				double empSalary;
+				cout<<"ID:";
+				cin>>empID;
+				cout<<"empName:";
+				cin>>empName;
+				cout<<"empSalary:";
+				cin>>empSalary;
+				E.setEmpID(empID);
+				E.setempName(empName);
+				E.setempSalary(empSalary);
+				break;
+			}
+			case 2:{
+				double result=E.GrossSalary();
+				cout<<"Cross Salary:"<<result<<endl;
+				break;
+			}
+			case 3:{
+				E.displayEmployeeDetails();
+				break;
+			}
+			case 4:{
+				string empName;
+				double empSalary;
+				cout<<"Enter EMP NAME:"<<endl;
+				cin>>empName;
+				cout<<"Enter empSalary:"<<endl;
+				cin>>empSalary;
+				E.UpdateEmployee(empName,empSalary);
+				break;
+			}
+			case 5:
+			{
+				cout<<"Exiting Program! Thank You! See You Again!"<<endl;
+				break;
+			}
+			default:
+				cout<<"INVALID CHOICE"<<endl;
+				break;
+		}
+	}while(choice!=5);
+	return 0;
+}

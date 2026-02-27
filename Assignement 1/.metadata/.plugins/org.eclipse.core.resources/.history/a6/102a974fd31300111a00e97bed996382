@@ -1,0 +1,123 @@
+//============================================================================
+// Name        : cpp.cpp
+// Author      : Pratik
+// Version     :
+// Copyright   : Your copyright notice
+// Description : Hello World in C++, Ansi-style
+//============================================================================
+
+#include <iostream>
+using namespace std;
+class Student{
+	string name;
+	int rollNumber;
+	float marks;
+	char grade;
+public:
+	string getName()const{
+			return name;
+	}
+
+	void setName(string Studentname){
+			name=Studentname;
+	}
+
+	int getRollNumber()const{
+		return rollNumber;
+	}
+
+	void setRollNumber (int Number){
+		if(Number>0){
+			rollNumber=Number;
+		}
+
+	}
+
+	void  setMarks(int Studentmarks){
+		if(Studentmarks>0){
+			marks=Studentmarks;
+		}
+	}
+
+	int getMarks()const{
+		return marks;
+	}
+
+	void setGrade(char StudentGrade){
+		grade=StudentGrade;
+	}
+
+	int getGrade() const{
+		return grade;
+	}
+
+	char calculateGrade(float marks){
+		if(marks>90){
+			grade='A';
+		}else if(marks>80){
+			grade='B';
+		}else if(marks>70){
+			grade='C';
+		}else if(marks>60){
+			grade='D';
+		}else{
+			grade='F';
+		}
+
+		return grade;
+	}
+
+};
+int main() {
+	int choice;
+	Student s;
+	do{
+		cout << "Menu Driven Program" << endl;
+		cout << "1. Accept Information " << endl;
+		cout << "2. Display information " << endl;
+		cout << "3. Calculate Grade " << endl;
+		cout << "4. Exit the program. " << endl;
+		cout<<"Enter your choice:"<<endl;
+		cin>>choice;
+		switch(choice){
+						case 1:
+						{	int rollNumber;
+							string name;
+							float Marks;
+							char Grade;
+							cout<<"Enter Name:\n";
+							cin>>name;
+							s.setName(name);
+							cout<<"Enter RollNumber:\n";
+							cin>>rollNumber;
+							s.setRollNumber(rollNumber);
+							cout<<"Enter Marks:\n";
+							cin>>Marks;
+							s.setMarks(Marks);
+							cout<<"Enter Grade:\n";
+							cin>>Grade;
+							s.setGrade(Grade);
+							break;
+						}
+						case 2:
+						{
+							cout <<s.getName()<<endl;
+							cout <<s.getRollNumber()<<endl;
+							cout <<s.getMarks()<<endl;
+							cout <<s.getGrade()<<endl;
+							break;
+						}
+						case 3:
+						{	int marks;
+							cout<<"Enter Marks:\n";
+							cin>>marks;
+							cout<<s.calculateGrade(marks)<<endl;
+							break;
+						}
+						case 4:{
+							break;
+						}
+		}
+	}while(choice!=4);
+	return 0;
+}

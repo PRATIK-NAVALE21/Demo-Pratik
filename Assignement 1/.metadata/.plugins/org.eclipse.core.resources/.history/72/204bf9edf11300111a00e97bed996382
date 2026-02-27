@@ -1,0 +1,65 @@
+//============================================================================
+// Name        : Quesiton3cpp.cpp
+// Author      : Pratik
+// Version     :
+// Copyright   : Your copyright notice
+// Description : Hello World in C++, Ansi-style
+//============================================================================
+
+#include <iostream>
+using namespace std;
+class ToolBooth{
+	int totalVehicles;
+	double totalRevenue;
+
+	void reset(int totVehicles,double totRevenue){
+		totalVehicles=totVehicles;
+		totalRevenue=totRevenue;
+	}
+
+	void vehiclePayingToll(int vehicleType,double tollAmount){
+
+	}
+
+	int getTotalVehicles()const{
+		return totalVehicles;
+	}
+
+	double getTotalRevenue(){
+		return totalRevenue;
+	}
+};
+int main() {
+	int choice;
+	do{
+		cout<<"MENU DRIVEN PROGRAM!";
+		cout<<"1. Add a standard car and collect toll ";
+		cout<<"2. Add a truck and collect toll ";
+		cout<<"3. Add a bus and collect toll ";
+		cout<<"4. Display total cars passed";
+		cout<<"5. Display total revenue collected";
+		cout<<"6. Reset booth statistics";
+		cout<<"7. Exit";
+		cout<<"Enter the choice:";
+		cin>>choice;
+
+		switch(choice){
+		case 1:{
+
+			break;
+		}
+		case 2:
+		case 3:
+		case 4:
+		case 5:
+		case 6:
+		case 7:
+		default:
+			cout<<"Invalid Choice!";
+			break;
+
+
+		}
+	}while(choice!=7);
+	return 0;
+}
